@@ -40,10 +40,20 @@ class NewProjectViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
     if segue.identifier == "SaveNewProject"{
-      project = Project(title: titleTextField.text, dueDate: "---", progress: 0.5, isProject: typeControl.selectedSegmentIndex)
+      project = Project(title: titleTextField.text, dueDate: displayDate(dueDatePicker.date), progress: 0.5, isProject: typeControl.selectedSegmentIndex)
     }
   }
   
+  //function that returns a string of date in "mm/dd/yy" format
+  func displayDate(date: NSDate) -> String!{
+    let dateFormatter = NSDateFormatter()
+    
+    var theDateFormat = NSDateFormatterStyle.ShortStyle
+    
+    dateFormatter.dateStyle = theDateFormat
+    
+    return dateFormatter.stringFromDate(date)
+  }
   
   // MARK: - Table view data source
   

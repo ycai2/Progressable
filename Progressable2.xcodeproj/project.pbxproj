@@ -425,6 +425,7 @@
 				188DC1961A787B0600128AA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		188DC1971A787B0600128AA1 /* Build configuration list for PBXNativeTarget "Progressable2Tests" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +434,7 @@
 				188DC1991A787B0600128AA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
