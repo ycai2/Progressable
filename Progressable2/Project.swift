@@ -13,11 +13,13 @@ class Project{
   var dueDate: NSDate
   var progress: Float
   var isProject: Int
+  var startDate:NSDate
   
-  init(title: String, dueDate: NSDate, progress: Float, isProject: Int){
+  init(title: String, dueDate: NSDate, progress: Float, isProject: Int, startDate: NSDate){
     self.title = title
     self.dueDate = dueDate
     self.progress = progress
     self.isProject = isProject
+    self.startDate = startDate
   }
 }

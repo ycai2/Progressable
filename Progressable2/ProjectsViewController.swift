@@ -62,20 +62,24 @@ class ProjectsViewController: UITableViewController {
   
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-  let cell = tableView.dequeueReusableCellWithIdentifier("ProjectCell", forIndexPath: indexPath) as ProjectCell
-  let project = projects[indexPath.row] as Project
-  
-  
-  cell.titleLabel.text = project.title
-  cell.dueDateLabel.text = displayDate(project.dueDate)
-  if (project.isProject == 0){
-    cell.progressValue.setProgress(project.progress, animated: true)
-  }else{
-    cell.progressValue.hidden = true
-  }
-  // Configure the cell...
-  
-  return cell
+    let cell = tableView.dequeueReusableCellWithIdentifier("ProjectCell", forIndexPath: indexPath) as ProjectCell
+    let project = projects[indexPath.row] as Project
+    
+    
+    cell.titleLabel.text = project.title
+    cell.dueDateLabel.text = displayDate(project.dueDate)
+    
+    //If the object is a project, show progress bar
+    if (project.isProject == 0){
+      let prog = calculateProgress(project.dueDate, startDate: project.startDate)
+      cell.progressValue.setProgress(prog, animated: true)
+    }
+    else{
+      cell.progressValue.hidden = true
+    }
+    // Configure the cell...
+    
+    return cell
   }
   
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -98,10 +102,12 @@ class ProjectsViewController: UITableViewController {
 
   func calculateProgress(dueDate: NSDate, startDate: NSDate) -> Float!{
     let totalTime = Float(dueDate.timeIntervalSinceDate(startDate))
+    //println(totalTime)
     let leftTime = Float(dueDate.timeIntervalSinceNow)
-    
-    let prog = leftTime/totalTime
-    return prog
+    //println(leftTime)
+    let prog = (totalTime-leftTime)/totalTime
+    //println(prog)
+    return abs(prog)
   }
   /*
   // Override to support conditional editing of the table view.

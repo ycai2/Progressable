@@ -40,7 +40,7 @@ class NewProjectViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
     if segue.identifier == "SaveNewProject"{
-      project = Project(title: titleTextField.text, dueDate: dueDatePicker.date, progress: 0.5, isProject: typeControl.selectedSegmentIndex)
+      project = Project(title: titleTextField.text, dueDate: dueDatePicker.date, progress: 0.0, isProject: typeControl.selectedSegmentIndex, startDate: NSDate())
     }
   }
   
