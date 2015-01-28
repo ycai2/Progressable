@@ -96,8 +96,11 @@ class ProjectsViewController: UITableViewController {
     return dateFormatter.stringFromDate(date)
   }
 
-  func calculateCountDown(date: NSDate) -> Float!{
-    var prog: Float = 0.0
+  func calculateProgress(dueDate: NSDate, startDate: NSDate) -> Float!{
+    let totalTime = Float(dueDate.timeIntervalSinceDate(startDate))
+    let leftTime = Float(dueDate.timeIntervalSinceNow)
+    
+    let prog = leftTime/totalTime
     return prog
   }
   /*
