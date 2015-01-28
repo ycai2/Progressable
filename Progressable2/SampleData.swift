@@ -8,6 +8,4 @@
 
 import Foundation
 
-let projectsData = [ Project(title: "P1", dueDate: "Date0001", progress: 0.0, isProject: 0),
-  Project(title: "P2", dueDate: "Date0002", progress: 0.5, isProject: 0),
-  Project(title: "P3", dueDate: "Date0003", progress: 0.8, isProject: 1)]
+var projectsData = [Project]()

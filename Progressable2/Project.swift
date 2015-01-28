@@ -10,11 +10,11 @@ import Foundation
 
 class Project{
   var title: String
-  var dueDate: String
+  var dueDate: NSDate
   var progress: Float
   var isProject: Int
   
-  init(title: String, dueDate: String, progress: Float, isProject: Int){
+  init(title: String, dueDate: NSDate, progress: Float, isProject: Int){
     self.title = title
     self.dueDate = dueDate
     self.progress = progress

@@ -67,7 +67,7 @@ class ProjectsViewController: UITableViewController {
   
   
   cell.titleLabel.text = project.title
-  cell.dueDateLabel.text = project.dueDate
+  cell.dueDateLabel.text = displayDate(project.dueDate)
   if (project.isProject == 0){
     cell.progressValue.setProgress(project.progress, animated: true)
   }else{
@@ -84,6 +84,18 @@ class ProjectsViewController: UITableViewController {
       projectTableView.reloadData()
     }
   }
+  
+  //function that returns a string of date in "Mon dd, yy" format
+  func displayDate(date: NSDate) -> String!{
+    let dateFormatter = NSDateFormatter()
+    
+    var theDateFormat = NSDateFormatterStyle.MediumStyle
+    
+    dateFormatter.dateStyle = theDateFormat
+    
+    return dateFormatter.stringFromDate(date)
+  }
+
   
   /*
   // Override to support conditional editing of the table view.
