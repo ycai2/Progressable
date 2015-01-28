@@ -44,11 +44,11 @@ class NewProjectViewController: UITableViewController {
     }
   }
   
-  //function that returns a string of date in "mm/dd/yy" format
+  //function that returns a string of date in "Mon dd, yy" format
   func displayDate(date: NSDate) -> String!{
     let dateFormatter = NSDateFormatter()
     
-    var theDateFormat = NSDateFormatterStyle.ShortStyle
+    var theDateFormat = NSDateFormatterStyle.MediumStyle
     
     dateFormatter.dateStyle = theDateFormat
     
