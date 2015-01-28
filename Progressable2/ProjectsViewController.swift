@@ -67,15 +67,17 @@ class ProjectsViewController: UITableViewController {
     
     
     cell.titleLabel.text = project.title
-    cell.dueDateLabel.text = displayDate(project.dueDate)
+    
     
     //If the object is a project, show progress bar
     if (project.isProject == 0){
       let prog = calculateProgress(project.dueDate, startDate: project.startDate)
       cell.progressValue.setProgress(prog, animated: true)
+      cell.dueDateLabel.text = "Due on " + displayDate(project.dueDate)
     }
     else{
       cell.progressValue.hidden = true
+      cell.dueDateLabel.text = "Happening on " + displayDate(project.dueDate)
     }
     // Configure the cell...
     
