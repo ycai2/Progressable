@@ -14,6 +14,7 @@ class ProjectsViewController: UITableViewController {
   //projectsData is a variable that presents an array of projects
   var projects: [Project] = projectsData
   
+  @IBOutlet var projectTableView: UITableView!
   @IBAction func cancelToProjectsViewController(segue:UIStoryboardSegue) {
     dismissViewControllerAnimated(true, completion: nil)
   }
@@ -77,6 +78,12 @@ class ProjectsViewController: UITableViewController {
   return cell
   }
   
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == UITableViewCellEditingStyle.Delete{
+      projects.removeAtIndex(indexPath.row)
+      projectTableView.reloadData()
+    }
+  }
   
   /*
   // Override to support conditional editing of the table view.
