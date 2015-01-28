@@ -96,7 +96,10 @@ class ProjectsViewController: UITableViewController {
     return dateFormatter.stringFromDate(date)
   }
 
-  
+  func calculateCountDown(date: NSDate) -> Float!{
+    var prog: Float = 0.0
+    return prog
+  }
   /*
   // Override to support conditional editing of the table view.
   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
